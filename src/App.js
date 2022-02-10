@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import Header from "./components/Header";
+import MainForm from "./components/MainForm";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <Box>
       <Navbar />
       <Header />
+      <MainForm />
     </Box>
   );
 }
