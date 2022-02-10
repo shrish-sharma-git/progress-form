@@ -43,7 +43,7 @@ const MainForm = () => {
                     }}
                 >Back</Button>   
             }
-            <LinearProgress sx={{mt: "30px"}} variant='determinate' value={(step/4)*100} />
+            <LinearProgress sx={{textAlign: 'center', margin: "30px 430px 0 430px"}} variant='determinate' value={(step/4)*100} />
         </Box>
     );
 }
