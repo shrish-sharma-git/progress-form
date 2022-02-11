@@ -1,4 +1,4 @@
-import { FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField, Typography } from '@mui/material';
+import { FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField } from '@mui/material';
 import React, { useState } from 'react';
 
 const NatureForm = () => {
