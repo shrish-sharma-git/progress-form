@@ -26,7 +26,16 @@ const MainForm = () => {
             mt: "20px"
         }}>
             <div>{formDisplay()}</div>
-            {
+            <Button
+                    variant='contained'
+                    sx={{ borderRadius: "999px", padding: "5px 40px 5px 40px"}}
+                    onClick={() => {
+                        setStep((currStep) => currStep + 1);
+                    }}
+                    >
+                        Next
+                    </Button>
+            {/* {
                 step == 0 ? 
                     <Button
                     variant='contained'
@@ -38,12 +47,15 @@ const MainForm = () => {
                         Next
                     </Button>
                 : <Button
+                    variant='contained'
+                    sx={{ borderRadius: "999px", padding: "5px 40px 5px 40px"}}
                     onClick={() => {
                         setStep((currStep) => currStep - 1);
                     }}
                 >Back</Button>   
-            }
-            <LinearProgress sx={{textAlign: 'center', margin: "30px 430px 0 430px"}} variant='determinate' value={(step/4)*100} />
+            } */}
+            <LinearProgress sx={{textAlign: 'center', margin: "30px 430px 0 430px"}} variant='determinate' 
+            value={(step/3)*100} />
         </Box>
     );
 }
