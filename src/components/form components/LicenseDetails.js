@@ -1,4 +1,4 @@
-import { FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 
 const LicenseDetails = () => {
@@ -11,6 +11,14 @@ const LicenseDetails = () => {
     };
     return (  
         <Grid>
+            <Grid item xs={12}>
+                <Typography
+                    sx={{mb: "15px"}}
+                    variant='h5'
+                >
+                    Proof of Current Entities
+                </Typography>
+            </Grid>
             <Grid item xs={12}>
                 <FormControl sx={{ m: 1, minWidth: 80 }}>
                     <InputLabel id="dob-proof-label">Available proof of D.O.B</InputLabel>
