@@ -1,14 +1,11 @@
-import { FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
+import { FormControl, Grid, InputLabel, MenuItem, Select, Typography } from '@mui/material';
 import React, { useState } from 'react';
 
-const LicenseDetails = () => {
-    const [issuedYear, setIssuedYear] = useState("");
-    const [expiringYear, setExpiringYear] = useState("");
+const LicenseDetails = ({ setStep }) => {
+    const [dobProof, setDobProof] = useState("");
+    const [addressProof, setAddressProof] = useState("");
+    const [currentPlace, setCurrentPlace] = useState("");
 
-    const handleChange = (e) => {
-        setIssuedYear(e.target.value);
-        setExpiringYear(e.target.value);
-    };
     return (  
         <Grid>
             <Grid item xs={12}>
@@ -25,9 +22,9 @@ const LicenseDetails = () => {
                     <Select
                         labelId="dob-proof-label"
                         id="doc-proof"
+                        value={dobProof}
                         label="Available proof of D.O.B"
-                        value={issuedYear}
-                        onChange={handleChange}
+                        onChange={(e) => setDobProof(e.target.value)}
                         sx={{width: "250px"}}
                     >
                         <MenuItem value={"10th Certificate"}>10th Certificate</MenuItem>
@@ -43,9 +40,9 @@ const LicenseDetails = () => {
                     <Select
                         labelId="address-proof-label"
                         id="address-proof"
+                        value={addressProof}
                         label="Address Proof Available"
-                        value={issuedYear}
-                        onChange={handleChange}
+                        onChange={(e) => setAddressProof(e.target.value)}
                         sx={{width: "250px"}}
                     >
                         <MenuItem value={"Voter ID card"}>Voter ID card</MenuItem>
@@ -62,9 +59,12 @@ const LicenseDetails = () => {
                     <Select
                         labelId="di-issue-label"
                         id="di-issue"
+                        value={currentPlace}
                         label="Current Place of D.L"
-                        value={issuedYear}
-                        onChange={handleChange}
+                        onChange={(e) => {
+                            setCurrentPlace(e.target.value)
+                            setStep(3)
+                        }}
                         sx={{width: "250px"}}
                     >
                         <MenuItem value={"Delhi"}>Delhi</MenuItem>

@@ -1,14 +1,11 @@
-import { FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { FormControl, Grid, InputLabel, MenuItem, Select } from '@mui/material';
 import React, { useState } from 'react';
 
-const ProofForm = () => {
+const ProofForm = ({ setStep }) => {
     const [issuedYear, setIssuedYear] = useState("");
     const [expiringYear, setExpiringYear] = useState("");
+    const [issuedPlace, setIssuedPlace] = useState("");
 
-    const handleChange = (e) => {
-        setIssuedYear(e.target.value);
-        setExpiringYear(e.target.value);
-    };
     return (  
         <Grid>
             <Grid item xs={12}>
@@ -19,7 +16,7 @@ const ProofForm = () => {
                         id="issued-year"
                         label="Issued year of license"
                         value={issuedYear}
-                        onChange={handleChange}
+                        onChange={(e) => setIssuedYear(e.target.value)}
                         sx={{width: "250px"}}
                     >
                         <MenuItem value={2010}>2010</MenuItem>
@@ -36,8 +33,8 @@ const ProofForm = () => {
                         labelId="expiry-year-label"
                         id="expiry-year"
                         label="Expiring year of license"
-                        value={issuedYear}
-                        onChange={handleChange}
+                        value={expiringYear}
+                        onChange={(e) => setExpiringYear(e.target.value)}
                         sx={{width: "250px"}}
                     >
                         <MenuItem value={2010}>2010</MenuItem>
@@ -54,8 +51,11 @@ const ProofForm = () => {
                         labelId="di-issue-label"
                         id="di-issue"
                         label="Issued Place of D.L"
-                        value={issuedYear}
-                        onChange={handleChange}
+                        value={issuedPlace}
+                        onChange={(e) => {
+                            setIssuedPlace(e.target.value)
+                            setStep(2)
+                        }}
                         sx={{width: "250px"}}
                     >
                         <MenuItem value={"Delhi"}>Delhi</MenuItem>

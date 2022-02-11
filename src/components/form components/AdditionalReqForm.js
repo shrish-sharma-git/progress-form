@@ -1,7 +1,8 @@
 import { FormControlLabel, FormLabel, Grid, Radio, RadioGroup, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 
 const AdditionalReqForm = () => {
+    const [addOnPref, setAddonPref] = useState("");
     return (  
         <Grid>
             <Grid item xs={12}>
@@ -13,11 +14,12 @@ const AdditionalReqForm = () => {
                 </Typography>
             </Grid>
             <Grid item xs={12} sx={{mt: "12px", mb: "50px"}}>
-                <FormLabel
-                 sx={{fontSize: "20px"}}
-                >If previous Driving License was issued from different city than current place of residence ?</FormLabel>
+                <FormLabel>If previous Driving License was issued from different city than current place of residence ?</FormLabel>
                 <RadioGroup
-                    sx={{margin: "12px 600px 0 600px"}}
+                    onChange={(e) => setAddonPref(e.target.value)}
+                    row
+                    value={addOnPref}
+                    sx={{display: 'flex', justifyContent: 'center', mt: '12px'}}
                 >
                     <FormControlLabel value="NOC available from previous city" control={<Radio />} label="NOC available from previous city" />
                     <FormControlLabel value="NOC not available from previous city" control={<Radio />} label="NOC not available from previous city" />
