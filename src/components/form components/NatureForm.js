@@ -1,17 +1,27 @@
-import { FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField } from '@mui/material';
+import { FormControlLabel, FormLabel, Grid, Input, Radio, RadioGroup, TextField } from '@mui/material';
 import React, { useState } from 'react';
 
 const NatureForm = () => {
     const [name, setName] = useState('');
     const [nature, setNature] = useState();
+
+    const handleInput = (e) => {
+        let value = e.target.value
+
+        value = value.replace(/[^A-Za-z]/ig, '');
+
+        setName(value);
+    }
+
     return (  
         <Grid>
             <Grid item xs={12} sx={{mt: "10px"}}>
                 <TextField 
-                    variant="outlined" 
+                    type={'text'}
                     value={name}
                     label="Your Name"
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={handleInput}
+                    // onChange={(e) => setName(e.target.value)}
                 />
             </Grid>
 
